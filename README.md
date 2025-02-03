@@ -61,3 +61,4 @@ Ce projet utilise un modèle YOLOv5 personnalisé pour détecter des objets à l
 - Si la souris ne bouge pas correctement, vérifiez votre modèle & le prompt est resté en verbose, vous aurez donc accès aux logs.
 - Assurez-vous que l'Arduino est connecté au bon port série et que le baudrate correspond.
 - Assurez-vous que le firmware est correctement chargé sur votre arduino.
+- Assusez-vous que votre résolution soit coordonnnée : # Mapper ces coordonnées à la résolution de l'écran
