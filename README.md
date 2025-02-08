@@ -34,12 +34,15 @@ Ce projet utilise un modèle YOLOv5 personnalisé pour détecter des objets à l
 
 1. Lancez le script Python :
    ```bash
-   python yolov5_arduino_control.py
+   python mousecontrol_for_com_arduino_image_detect.py
    ```
 
 2. Le programme capturera l'écran en temps réel, détectera des objets, et déplacera la souris en conséquence.
 
-3. Pour arrêter le script, appuyez sur la touche `o`.
+3. Ne pas oublier de modifier ces valeurs en fonction de vos entrées computer.
+4. port = 'COM10'  # Remplacez par le port COM correct (COMx sur Windows, /dev/ttyUSBx sur Linux)
+5. baudrate = 9600 # A modifier en fonction de votre input arduino, à modifier également si des latences sont perçus, afin de ne pas surchager l'arduino.
+6. def load_yolov5_model(model_path='best_fornite.pt'): # Modifier par votre modele, dans ce cas présent, nous avons entrainés depuis un dataset custom Fortnite, au sein du Repo utiliser 326_head_body.pt
 
 ## Fonctionnalités
 
@@ -50,9 +53,12 @@ Ce projet utilise un modèle YOLOv5 personnalisé pour détecter des objets à l
 ## Limitations
 
 - La détection est limitée par les performances du modèle YOLOv5 et la vitesse de capture de l'écran.
+- Le projet devrait être migré en Yolov8 & Yolov11 (https://github.com/iwebbo/yolov8-tracking-fps)
 - Assurez-vous que la résolution de l'écran utilisée dans le jeu correspond à celle configurée dans le script (par défaut : 1920x1080).
 
 ## Dépannage
 
-- Si la souris ne bouge pas correctement, vérifiez que les coordonnées de l'écran et les paramètres de résolution sont corrects.
+- Si la souris ne bouge pas correctement, vérifiez votre modèle & le prompt est resté en verbose, vous aurez donc accès aux logs.
 - Assurez-vous que l'Arduino est connecté au bon port série et que le baudrate correspond.
+- Assurez-vous que le firmware est correctement chargé sur votre arduino.
+- Assusez-vous que votre résolution soit coordonnnée : # Mapper ces coordonnées à la résolution de l'écran
