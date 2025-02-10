@@ -1,59 +1,91 @@
-#English Documentation 
-Prerequisites
-Hardware:
-A computer capable of capturing the screen in real-time.
-An Arduino connected via a serial port (e.g., Arduino Uno).
-A USB cable to connect the computer and the Arduino.
-Software:
-Python 3.x installed on your machine.
-Required Python libraries (see Installation).
-A custom YOLOv5 model in .pt format (e.g., best_fornite.pt).
-Installation
-Install the required Python libraries:
+# Automated Mouse Control with YOLOv5 and Arduino
 
-sh
-Copier
-Modifier
+This project uses a custom YOLOv5 model to detect objects on the screen and control the mouse position based on the detected objects. It also sends the coordinates of the detected objects to an Arduino via serial communication.
+
+---
+
+## 📌 Prerequisites
+
+### 🖥 Hardware:
+- A computer capable of capturing the screen in real-time.
+- An Arduino connected via a serial port (e.g., Arduino Uno).
+- A USB cable to connect the computer and the Arduino.
+
+### 🛠 Software:
+- Python 3.x installed on your machine.
+- Required Python libraries (see Installation).
+- A custom YOLOv5 model in `.pt` format (e.g., `best_fornite.pt`).
+
+---
+
+## 🔧 Installation
+
+Install the required Python libraries:
+```sh
 pip install opencv-python torch pyautogui numpy pillow ultralytics
-Connect your Arduino and note the serial port being used (e.g., COM10 on Windows or /dev/ttyUSBx on Linux).
+```
+
+Connect your Arduino and note the serial port being used (e.g., `COM10` on Windows or `/dev/ttyUSBx` on Linux).
 
 Download or train your own YOLOv5 model and place it in the project directory.
 
-Configuration
-Arduino Serial Port: Modify the port variable in the script to match your Arduino's serial port.
-YOLOv5 Model: Ensure that the model file specified in load_yolov5_model() matches your custom model path (default: best_fornite.pt).
-Usage
-Run the Python script:
+---
 
-sh
-Copier
-Modifier
+## ⚙️ Configuration
+
+- **Arduino Serial Port:** Modify the `port` variable in the script to match your Arduino's serial port.
+- **YOLOv5 Model:** Ensure that the model file specified in `load_yolov5_model()` matches your custom model path (default: `best_fornite.pt`).
+
+---
+
+## 🚀 Usage
+
+Run the Python script:
+```sh
 python mousecontrol_for_com_arduino_image_detect.py
+```
 The program will capture the screen in real-time, detect objects, and move the mouse accordingly.
 
 Make sure to update these values according to your setup:
 
-python
-Copier
-Modifier
+```python
 port = 'COM10'  # Replace with the correct COM port (COMx on Windows, /dev/ttyUSBx on Linux)
 
 baudrate = 9600  # Adjust based on your Arduino input. Modify if latency issues occur to avoid overloading the Arduino.
 
-def load_yolov5_model(model_path='best_fornite.pt'):  # Replace with your model. In this case, we trained on a custom Fortnite dataset, using 326_head_body.pt from the repository.
-Features
-Real-time Object Detection: Uses YOLOv5 to identify objects on the screen.
-Mouse Control: Moves the mouse to the center of the detected object.
-Arduino Communication: Sends detected object coordinates via the serial port.
-Limitations
-Detection performance depends on the YOLOv5 model and screen capture speed.
-The project should be migrated to YOLOv8 & YOLOv11 for improved tracking (https://github.com/iwebbo/yolov8-tracking-fps).
-Ensure that the in-game resolution matches the resolution configured in the script (default: 1920x1080).
-Troubleshooting
-Mouse movement issues: Verify that the model is working correctly. The script runs in verbose mode, so logs should be available.
-Arduino not responding: Ensure the Arduino is connected to the correct serial port and the baudrate matches.
-Firmware issues: Check that the firmware is properly uploaded to your Arduino.
-Resolution mismatch: Ensure the mapped coordinates align with your screen resolution.
+def load_yolov5_model(model_path='best_fornite.pt'):  # Replace with your model.
+    # Example: We trained on a custom Fortnite dataset, using 326_head_body.pt from the repository.
+```
+
+---
+
+## ✨ Features
+
+✅ **Real-time Object Detection:** Uses YOLOv5 to identify objects on the screen.  
+✅ **Mouse Control:** Moves the mouse to the center of the detected object.  
+✅ **Arduino Communication:** Sends detected object coordinates via the serial port.  
+
+---
+
+## ⚠️ Limitations
+
+- Detection performance depends on the YOLOv5 model and screen capture speed.
+- The project should be migrated to **YOLOv8 & YOLOv11** for improved tracking ([GitHub Link](https://github.com/iwebbo/yolov8-tracking-fps)).
+- Ensure that the in-game resolution matches the resolution configured in the script (default: `1920x1080`).
+
+---
+
+## 🛠 Troubleshooting
+
+🔹 **Mouse movement issues:** Verify that the model is working correctly. The script runs in verbose mode, so logs should be available.  
+🔹 **Arduino not responding:** Ensure the Arduino is connected to the correct serial port and the baudrate matches.  
+🔹 **Firmware issues:** Check that the firmware is properly uploaded to your Arduino.  
+🔹 **Resolution mismatch:** Ensure the mapped coordinates align with your screen resolution.  
+
+---
+
+💡 Feel free to contribute and improve this project! 🚀
+
 
 
 #French Documentation
