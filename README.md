@@ -4,6 +4,10 @@ This project uses a custom YOLOv5 model to detect objects on the screen and cont
 
 ---
 
+## 📌 Technologies
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white) ![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+
 ## 📌 Prerequisites
 
 ### 🖥 Hardware:
